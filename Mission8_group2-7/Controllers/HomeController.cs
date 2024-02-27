@@ -14,40 +14,40 @@ namespace Mission8_group2_7.Controllers
         }
 
         [HttpGet]
-        public IActionResult NameOfQuadPageHere()
+        public IActionResult Quadrent()
         {
-            ViewBag.Tasks = _repo.Tasks.FirstOrDefault();
+            ViewBag.Tasks = _repo.Tasks.ToList();
 
             return View();
         }
 
         [HttpGet]
-        public IActionResult NameOfFormPageHere() 
+        public IActionResult Form() 
         { 
-            return View(new NameOfModelHere());
+            return View(new TaskModel());
         }
 
         [HttpPost]
-        public IActionResult NameOfFormPageHere(NameOfModelHere response)
+        public IActionResult NameOfFormPageHere(TaskModel response)
         {
             if (ModelState.IsValid)
             {
                 _repo.AddTask(response);
             }
 
-            return RedirectToAction("NameOfQuadViewHere");
+            return RedirectToAction("Quadrent");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _repo.ModelNameHere.Single(x => x.ModelPKHere == id);
+            var recordToEdit = _repo.Tasks.Single(x => x.Id == id);
 
-            return View("NameOfFormPageHere", recordToEdit);
+            return View("Form", recordToEdit);
         }
 
         [HttpPost]
-        public IActionResult Edit(ModelNameHere updatedTask)
+        public IActionResult Edit(TaskModel updatedTask)
         {
             
             if (ModelState.IsValid)
@@ -55,7 +55,7 @@ namespace Mission8_group2_7.Controllers
                 _repo.AddTask(updatedTask);
             }
 
-            return RedirectToAction("NameOfQuadViewHere");
+            return RedirectToAction("Quadrent");
         }
 
 

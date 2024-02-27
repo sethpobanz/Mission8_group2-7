@@ -8,7 +8,7 @@ namespace Mission8_group2_7.Models
         {
         }
 
-        public DbSet<ModelNameHere> PluralModelNameHere { get; set; }
+        public DbSet<TaskModel> Tasks { get; set; }
        
 
     }

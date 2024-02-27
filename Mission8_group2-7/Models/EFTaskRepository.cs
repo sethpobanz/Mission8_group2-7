@@ -9,15 +9,15 @@
             _context = temp;
         }
 
-        public List<Task> Tasks => _context.Tasks.ToList();
+        public List<TaskModel> Tasks => _context.Tasks.ToList();
 
-        public void addTask(Task task)
+        public void addTask(TaskModel task)
         {
             _context.Tasks.Add(task);
             _context.SaveChanges();
         }
 
-        public void updateTask(Task task)
+        public void updateTask(TaskModel task)
         {
             _context.Update(task);
             _context.SaveChanges();

@@ -2,10 +2,10 @@
 {
     public interface ITaskRepository
     {
-        List<Task> Tasks { get; }
+        List<TaskModel> Tasks { get; }
 
-        public void AddTask(Task task);
-        public void UpdateTask(Task task);
+        public void AddTask(TaskModel task);
+        public void UpdateTask(TaskModel task);
 
     }
 }
