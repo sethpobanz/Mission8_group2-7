@@ -6,22 +6,66 @@ namespace Mission8_group2_7.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ITaskRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ITaskRepository temp)
         {
-            _logger = logger;
+            _repo = temp;
         }
+
+        [HttpGet]
+        public IActionResult NameOfQuadPageHere()
+        {
+            ViewBag.Tasks = _repo.Tasks.FirstOrDefault();
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult NameOfFormPageHere() 
+        { 
+            return View(new NameOfModelHere());
+        }
+
+        [HttpPost]
+        public IActionResult NameOfFormPageHere(NameOfModelHere response)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.AddTask(response);
+            }
+
+            return RedirectToAction("NameOfQuadViewHere");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var recordToEdit = _repo.ModelNameHere.Single(x => x.ModelPKHere == id);
+
+            return View("NameOfFormPageHere", recordToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ModelNameHere updatedTask)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                _repo.AddTask(updatedTask);
+            }
+
+            return RedirectToAction("NameOfQuadViewHere");
+        }
+
+
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

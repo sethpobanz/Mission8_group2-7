@@ -1,7 +1,12 @@
+using Mission8_group2_7.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddScoped<ITaskRepository, EFTaskRepository>();
 
 var app = builder.Build();
 
