@@ -14,7 +14,7 @@ namespace Mission8_group2_7.Controllers
         }
 
         [HttpGet]
-        public IActionResult Quadrent()
+        public IActionResult Quadrant()
         {
             ViewBag.Tasks = _repo.Tasks.ToList();
 
@@ -28,14 +28,14 @@ namespace Mission8_group2_7.Controllers
         }
 
         [HttpPost]
-        public IActionResult NameOfFormPageHere(TaskModel response)
+        public IActionResult Form(TaskModel response)
         {
             if (ModelState.IsValid)
             {
                 _repo.AddTask(response);
             }
 
-            return RedirectToAction("Quadrent");
+            return RedirectToAction("Quadrant");
         }
 
         [HttpGet]
@@ -55,7 +55,7 @@ namespace Mission8_group2_7.Controllers
                 _repo.AddTask(updatedTask);
             }
 
-            return RedirectToAction("Quadrent");
+            return RedirectToAction("Quadrant");
         }
 
 
