@@ -14,7 +14,7 @@ namespace Mission8_group2_7.Controllers
         }
 
         [HttpGet]
-        public IActionResult Quadrent()
+        public IActionResult Quadrant()
         {
             ViewBag.Tasks = _repo.Tasks.ToList();
 
