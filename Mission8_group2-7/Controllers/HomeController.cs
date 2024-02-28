@@ -49,7 +49,7 @@ namespace Mission8_group2_7.Controllers
         [HttpPost]
         public IActionResult Edit(TaskModel updatedTask)
         {
-            
+
             if (ModelState.IsValid)
             {
                 _repo.AddTask(updatedTask);
