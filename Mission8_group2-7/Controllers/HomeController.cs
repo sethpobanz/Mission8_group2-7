@@ -14,7 +14,7 @@ namespace Mission8_group2_7.Controllers
         }
 
         [HttpGet]
-        public IActionResult Quadrent()
+        public IActionResult Quadrant()
         {
             ViewBag.Tasks = _repo.Tasks.ToList();
 
@@ -28,20 +28,20 @@ namespace Mission8_group2_7.Controllers
         }
 
         [HttpPost]
-        public IActionResult NameOfFormPageHere(TaskModel response)
+        public IActionResult Form(TaskModel response)
         {
             if (ModelState.IsValid)
             {
                 _repo.AddTask(response);
             }
 
-            return RedirectToAction("Quadrent");
+            return RedirectToAction("Quadrant");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _repo.Tasks.Single(x => x.Id == id);
+            var recordToEdit = _repo.Tasks.Single(x => x.TaskId == id);
 
             return View("Form", recordToEdit);
         }
@@ -55,7 +55,7 @@ namespace Mission8_group2_7.Controllers
                 _repo.AddTask(updatedTask);
             }
 
-            return RedirectToAction("Quadrent");
+            return RedirectToAction("Quadrant");
         }
 
 
@@ -67,10 +67,6 @@ namespace Mission8_group2_7.Controllers
 
         
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+     
     }
 }

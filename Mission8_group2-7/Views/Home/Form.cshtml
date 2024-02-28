@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Edit Page";
+}
+
+<h1>Update or Add Task Form</h1>
+
+<form method="post">
+    <label>Quadrant</label>
+    <select>
+        <option>Quadrant 1 : Urgent and Important</option>
+        <option>Quadrant 2 : Not Urgent but Important</option>
+        <option>Quadrant 3 : Urgent but Not Important</option>
+        <option>Quadrant 4 : Not Urgent and Not Important</option>
+    </select>
+
+    <br />
+    <label>Task</label>
+    <input type="text" />
+
+    <br />
+    <label>Category</label>
+    <select>
+        <option>Home</option>
+        <option>School</option>
+        <option>Work</option>
+        <option>Church</option>
+    </select>
+
+    <br />
+    <label>Due Date</label>
+    <input type="date" />
+
+    <br />
+    <label>Task Completed?</label>
+    <select>
+        <option>YES</option>
+        <option>NO</option>
+    </select>
+
+    <br />
+    <button>Submit</button>
+</form>
+
