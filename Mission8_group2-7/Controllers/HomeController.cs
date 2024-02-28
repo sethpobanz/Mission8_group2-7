@@ -41,7 +41,7 @@ namespace Mission8_group2_7.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _repo.Tasks.Single(x => x.Id == id);
+            var recordToEdit = _repo.Tasks.Single(x => x.TaskId == id);
 
             return View("Form", recordToEdit);
         }
